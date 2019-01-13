@@ -1,0 +1,46 @@
+﻿@{ 
+    string getCurrentSpan(string controller, string action)
+    {
+        var currentController = ViewContext.RouteData.Values["controller"] as string;
+        var currentAction = ViewContext.RouteData.Values["action"] as string;
+        if (controller == currentController && action == currentAction)
+        {
+            return "<span class='sr-only'>(current)</span>";
+        }
+        return string.Empty;
+    }
+
+    string getActiveCssClass(string controller, string action)
+    {
+        var currentController = ViewContext.RouteData.Values["controller"] as string;
+        var currentAction = ViewContext.RouteData.Values["action"] as string;
+        if (controller == currentController && action == currentAction)
+        {
+            return "active";
+        }
+        return string.Empty;
+    }
+}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index">Collections</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item @getActiveCssClass("Home", "Index")">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">Home @Html.Raw(getCurrentSpan("Home", "Index"))</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <form asp-controller="Account" asp-action="Logout">
+                    <button type="submit" class="btn btn-link nav-link">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>

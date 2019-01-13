@@ -1,0 +1,32 @@
+﻿@model Collections.Web.ViewModels.LoginViewModel
+
+@{
+    Layout = "_LoginLayout";
+}
+
+<div class="row vh-100 overflow-hidden">
+    <div class="col-md-4 my-auto">
+        <h2 class="text-center">Login</h2>
+        <form asp-action="Login" class="mx-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <input asp-for="RememberMe" type="checkbox" class="form-check-input">
+                <label asp-for="RememberMe" class="form-check-label">Remember Me</label>
+                <button type="submit" class="btn btn-primary float-right">Login</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8 d-none d-flex flex-column flex-fill">
+        <div class="login-bg-image flex-fill"></div>
+    </div>
+</div>

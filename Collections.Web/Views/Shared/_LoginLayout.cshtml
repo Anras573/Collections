@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Collections.Web</title>
+    <title>Login - Collections</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" asp-append-version="true" />
@@ -14,17 +14,10 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body>
-    <partial name="_NavBar" />
+<body class="d-flex flex-column min-vh-100">
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - Collections.Web</p>
-        </footer>
-    </div>
+    @RenderBody()
 
     <environment include="Development">
         <script src="~/lib/jquery/jquery.slim.js" asp-append-version="true"></script>
